@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For Jassu ❤️</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff4e88, #ff99ac);
+        font-family: "Arial", sans-serif;
+      }
+
+      .container {
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        padding: 15px 35px;
+        font-size: 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 15px;
+        transition: 0.3s;
+      }
+
+      #yes {
+        background-color: white;
+        color: #ff4e88;
+      }
+
+      #no {
+        background-color: black;
+        color: white;
+        position: absolute;
+      }
+
+      .message {
+        font-size: 32px;
+        margin-top: 30px;
+      }
+
+      .heart {
+        position: fixed;
+        color: white;
+        font-size: 20px;
+        animation: float 5s linear infinite;
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(-10vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Jassu ❤️</h1>
+      <p>You make my world brighter every single day ✨</p>
+      <h2>Will You Be My Valentine? 💖</h2>
+
+      <button class="btn" id="yes" onclick="sayYes()">Yes ❤️</button>
+      <button class="btn" id="no" onmouseover="moveButton()">No 💔</button>
+
+      <div class="message" id="message"></div>
+    </div>
+
+    <script>
+      function moveButton() {
+        var button = document.getElementById("no");
+        var x = Math.random() * (window.innerWidth - 100);
+        var y = Math.random() * (window.innerHeight - 100);
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+      }
+
+      function sayYes() {
+        document.getElementById("message").innerHTML =
+          "Jassu ❤️ You just made me the happiest person alive! 💕";
+        createHearts();
+      }
+
+      function createHearts() {
+        for (let i = 0; i < 20; i++) {
+          let heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "💖";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+          document.body.appendChild(heart);
+        }
+      }
+    </script>
+  </body>
+</html>
